@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: black;
+  color: #e6e6e6;
+  overflow-x: hidden;
+}
+
+/* Star background */
+.stars {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 3px 3px;
+  background-position: 0 0, 1.5px 1.5px;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* Header */
+.hud-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.status {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Grid */
+.hud-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 24px;
+}
+
+.panel {
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 16px;
+  background: rgba(0,0,0,0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.panel h3 {
+  margin-top: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.panel.wide {
+  grid-column: span 2;
+}
+
+.icon {
+  font-size: 32px;
+  margin: 12px 0;
+}
+
+/* Workflow */
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.step {
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.step span {
+  font-size: 28px;
+  display: block;
+  margin-top: 8px;
+}
+
+/* Hover expand (reactive) */
+.hover-expand:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(120,180,255,0.25);
+}
