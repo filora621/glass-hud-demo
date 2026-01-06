@@ -1,65 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>GLASS HUD Demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="hud">
 
-  <!-- STAR BACKGROUND -->
-  <div class="stars"></div>
-
-  <!-- HEADER -->
-  <header class="hud-header">
-    <div class="brand">GLASS</div>
-    <div class="status">AIDEN · Tue 6 Jan · 10:45</div>
-  </header>
-
-  <!-- MAIN GRID -->
-  <main class="hud-grid">
-
-    <section class="panel hover-expand">
-      <h3>PULSE</h3>
-      <div class="icon">🔔</div>
-      <p>No active pulse</p>
-    </section>
-
-    <section class="panel hover-expand">
-      <h3>TASK LIST</h3>
-      <div class="icon">✅</div>
-      <p>No active tasks</p>
-    </section>
-
-    <section class="panel wide">
-      <h2>Welcome Back, Capt. Demo User</h2>
-      <p class="sub">Technical Order Workflow</p>
-
-      <div class="workflow">
-        <div class="step">New<br><span>0</span></div>
-        <div class="step">Scanned<br><span>0</span></div>
-        <div class="step">Sent<br><span>0</span></div>
-        <div class="step">Approved<br><span>0</span></div>
+    <!-- Top chrome -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="brand-mark">
+          <div class="sf-logo" aria-hidden="true"></div>
+          <div class="cui-pill">CUI</div>
+        </div>
       </div>
-    </section>
 
-    <section class="panel hover-expand">
-      <h3>CORE DATA</h3>
-      <p>Capt. Demo User<br/>Technical Order Analyst</p>
-    </section>
+      <div class="topbar-center">
+        <div class="glass-badge">
+          <span>GLASS</span>
+        </div>
+      </div>
 
-    <section class="panel hover-expand">
-      <h3>AREA OF RESPONSIBILITY</h3>
-      <p>Map Placeholder</p>
-    </section>
+      <div class="topbar-right">
+        <div class="user-pill">
+          <span class="user-dot" aria-hidden="true"></span>
+          <span class="user-name" id="userName">AIDEN</span>
+        </div>
+        <div class="time-pill" id="timePill">Tue 6 Jan 18:08</div>
+        <div class="avatar">CK</div>
+      </div>
 
-    <section class="panel hover-expand">
-      <h3>COMMS</h3>
-      <p>Major Rachel D. Holloway</p>
-    </section>
+      <div class="topbar-line"></div>
+    </header>
 
-  </main>
+    <!-- Background layers -->
+    <div class="bg-stars" aria-hidden="true"></div>
+    <div class="bg-earth" aria-hidden="true"></div>
+
+    <!-- Main grid -->
+    <main class="grid">
+      <!-- LEFT COLUMN -->
+      <section class="col col-left">
+        <article class="panel panel-tall hover-grow" data-panel="pulse">
+          <div class="panel-head">
+            <div class="panel-title">PULSE</div>
+          </div>
+          <div class="panel-body center">
+            <div class="ring">
+              <div class="icon-bell" aria-hidden="true"></div>
+            </div>
+            <div class="muted">No active pulse</div>
+          </div>
+        </article>
+
+        <article class="panel panel-tall hover-grow" data-panel="tasks">
+          <div class="panel-head">
+            <div class="panel-title">TASK LIST</div>
+          </div>
+          <div class="panel-body center">
+            <div class="ring">
+              <div class="icon-check" aria-hidden="true"></div>
+            </div>
+            <div class="muted">No active tasks</div>
+          </div>
+        </article>
+
+        <article class="panel panel-launchpad hover-grow" data-panel="launchpad">
+          <div class="panel-head">
+            <div class="panel-title">LAUNCHPAD</div>
+          </div>
+          <div class="panel-body launchpad">
+            <button class="nav-arrow" aria-label="Previous">‹</button>
+            <div class="lp-icons">
+              <div class="lp-ic">O</div>
+              <div class="lp-ic">W</div>
+              <div class="lp-ic">X</div>
+              <div class="lp-ic">S</div>
+            </div>
+            <button class="nav-arrow" aria-label="Next">›</button>
+          </div>
+        </article>
+      </section>
+
+      <!-- CENTER COLUMN -->
+      <section class="col col-center">
+        <article class="panel panel-wide hover-grow" data-panel="workflow">
+          <div class="panel-body">
+            <div class="welcome">
+              <div class="welcome-title" id="welcomeTitle">Welcome Back, Capt. Keating</div>
+              <div class="welcome-sub">Technical Order Workflow</div>
+            </div>
+
+            <div class="progress-bar" aria-hidden="true">
+              <span class="seg s1"></span>
+              <span class="seg s2"></span>
+              <span class="seg s3"></span>
+              <span class="seg s4"></span>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric">
+                <div class="metric-icon">⎘</div>
+                <div class="metric-num">0</div>
+                <div class="metric-label">New submissions</div>
+              </div>
+              <div class="metric">
+                <div class="metric-icon">🛠</div>
+                <div class="metric-num">0</div>
+                <div class="metric-label">Scanned</div>
+              </div>
+              <div class="metric">
+                <div class="metric-icon">▶</div>
+                <div class="metric-num">0</div>
+                <div class="metric-label">Sent to Vendors</div>
+              </div>
+              <div class="metric">
+                <div class="metric-icon">✓</div>
+                <div class="metric-num">0</div>
+                <div class="metric-label">Approved</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel panel-meetings hover-grow" data-panel="meetings">
+          <div class="panel-head">
+            <div class="panel-title">Upcoming Meetings</div>
+          </div>
+          <div class="panel-body meetings">
+            <div class="signin">
+              <div class="signin-avatar">👤</div>
+              <div class="signin-title">Sign in is required</div>
+              <div class="signin-sub">Please sign in with your Microsoft account<br/>to access your Outlook calendar.</div>
+              <button class="btn-orange">Sign in with Microsoft</button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <section class="col col-right">
+        <article class="panel hover-grow" data-panel="core">
+          <div class="panel-head">
+            <div class="panel-title">CORE DATA</div>
+          </div>
+          <div class="panel-body core">
+            <div class="core-avatar"></div>
+            <div class="core-text">
+              <div class="core-name">Capt. Marcus Keating</div>
+              <div class="core-role">Technical Order Analyst</div>
+              <div class="core-meta">2 years, 9 months</div>
+              <div class="core-line">✉ marcus.keating@spaceforce.mil</div>
+              <div class="core-line">🏢 AATS - Advanced Aerospace Technical Systems</div>
+              <div class="core-line">📍 789 Veum Port, Peterson SFB, CO</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel hover-grow" data-panel="aor">
+          <div class="panel-head">
+            <div class="panel-title">AREA OF RESPONSIBILITY</div>
+          </div>
+          <div class="panel-body aor">
+            <div class="map">
+              <div class="map-watermark">CESIUM</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel hover-grow" data-panel="comms">
+          <div class="panel-head">
+            <div class="panel-title">COMMS</div>
+          </div>
+          <div class="panel-body comms">
+            <div class="card">
+              <div class="card-title">Major Rachel D. Holloway</div>
+              <div class="card-sub">Branch Chief, Technical Order Governance &amp; Sustainment</div>
+              <div class="card-line">✉ rachel.holloway@spaceforce.mil</div>
+              <div class="card-line">☎ 312-555-0182</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Colonel Adrian T. Walters</div>
+              <div class="card-sub">Director, Aerospace Technical Orders Division</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+  </div>
 
   <script src="script.js"></script>
 </body>
